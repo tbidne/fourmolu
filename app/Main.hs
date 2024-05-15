@@ -469,7 +469,7 @@ sourceTypeParser =
     ]
 
 printerOptsParser :: Parser PrinterOptsPartial
-printerOptsParser = parsePrinterOptsCLI mkOption
+printerOptsParser = parserOptionGroup "Printer options" $ parsePrinterOptsCLI mkOption
   where
     mkOption name helpText placeholder =
       option (Just <$> eitherReader parsePrinterOptType) . mconcat $
